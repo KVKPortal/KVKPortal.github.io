@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 	if (user){
 		document.getElementById('loginBtn').innerHTML = 'Logged in as: '+user.email;
 		firebase.database().ref(user.uid).on('value', function(snapshot){
-			if(window.location.href === 'https://kvkportal.loca.lt/student.html'){
+			if(window.location.href === 'https://kvkportal.github.io/student.html'){
 				if(snapshot.val().type === 'Student'){
 					document.getElementById('username').innerHTML='Welcome to student portal, ' + snapshot.val().name + '!';
 					document.getElementById('marks').innerHTML='Your marks are: Maths: ' + snapshot.val().mathsMarks + ', Hindi: '+ snapshot.val().hindiMarks+ ', English: '+ snapshot.val().englishMarks + ', Social Science: '+ snapshot.val().socialMarks+ ', Science: '+ snapshot.val().scienceMarks+ ', Sanskrit: '+ snapshot.val().sktMarks;
@@ -21,7 +21,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 					document.getElementById('mainStudent').remove();
 				}
 			}
-			else if(window.location.href === 'https://kvkportal.loca.lt/principal.html'){
+			else if(window.location.href === 'https://kvkportal.github.io/principal.html'){
 				if(snapshot.val().type === 'Principal'){
 					return;
 				}
@@ -29,7 +29,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 					document.getElementById('mainSecPrincipal').remove();
 				}
 			}
-			else if(window.location.href === 'https://kvkportal.loca.lt/teacher.html'){
+			else if(window.location.href === 'https://kvkportal.github.io/teacher.html'){
 				if(snapshot.val().type === 'Principal'){
 					return;
 				}
@@ -44,13 +44,13 @@ firebase.auth().onAuthStateChanged(function(user) {
 		});
 	}
 	else{
-		if(window.location.href === 'https://kvkportal.loca.lt/student.html'){
+		if(window.location.href === 'https://kvkportal.github.io/student.html'){
 			document.getElementById('mainStudent').remove();
 			}
-		else if(window.location.href === 'https://kvkportal.loca.lt/principal.html'){
+		else if(window.location.href === 'https://kvkportal.github.io/principal.html'){
 			document.getElementById('mainSecPrincipal').remove();
 		}
-		else if(window.location.href === 'https://kvkportal.loca.lt/teacher.html'){
+		else if(window.location.href === 'https://kvkportal.github.io/teacher.html'){
 			document.getElementById('mainTeacher').remove();
 		}
 	}
